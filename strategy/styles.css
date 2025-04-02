@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+main {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+#conversation {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.message {
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+.user::before {
+  content: "You asked: ";
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.model::before {
+  content: "AI Response: ";
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+#spinner {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #222;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#spinner.active {
+  opacity: 1;
+}
+
+form {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0b5ed7;
+}
+
+#error {
+  color: #dc3545;
+  margin-top: 15px;
+  display: none;
+}
