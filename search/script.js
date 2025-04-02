@@ -500,6 +500,13 @@ class StockDashboard {
           this.dom.chartCanvas.style.cursor = elements.length
             ? "pointer"
             : "default";
+
+          // Track mouse position for tooltip positioning
+          if (event && event.native) {
+            const rect = event.native.target.getBoundingClientRect();
+            this.chart.canvas.mouseX = event.native.offsetX;
+            this.chart.canvas.mouseY = event.native.offsetY;
+          }
         },
       },
     };
@@ -559,10 +566,18 @@ class StockDashboard {
       </div>
     `;
 
-    // Position tooltip closer to the mouse cursor
+    // Use mouse position instead of chart's caret position
+    const mousePosition = {
+      x: context.chart.canvas.mouseX || context.chart.tooltip.caretX,
+      y: context.chart.canvas.mouseY || context.chart.tooltip.caretY,
+    };
+
+    // Get the position of the chart canvas
     const position = chart.canvas.getBoundingClientRect();
-    const x = position.left + window.scrollX + tooltip.caretX + 10; // 10px offset right
-    const y = position.top + window.scrollY + tooltip.caretY + 10; // 10px offset down
+
+    // Position tooltip directly at mouse cursor with small offset to prevent the tooltip from covering the cursor
+    const x = position.left + window.scrollX + mousePosition.x + 15; // 15px offset right
+    const y = position.top + window.scrollY + mousePosition.y - 10; // 10px offset up to position tooltip above cursor
 
     this.tooltip.show(x, y, content);
   }

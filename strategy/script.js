@@ -1,3 +1,28 @@
+// Theme toggle functionality
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+const icon = themeToggle.querySelector("i");
+
+// Check for saved theme preference
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-theme");
+  icon.classList.replace("fa-moon", "fa-sun");
+}
+
+// Toggle theme when button is clicked
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-theme");
+
+  // Update icon
+  if (body.classList.contains("dark-theme")) {
+    icon.classList.replace("fa-moon", "fa-sun");
+    localStorage.setItem("theme", "dark");
+  } else {
+    icon.classList.replace("fa-sun", "fa-moon");
+    localStorage.setItem("theme", "light");
+  }
+});
+
 // Import the marked library for Markdown rendering
 import { marked } from "https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.0/lib/marked.esm.js";
 

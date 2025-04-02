@@ -1,0 +1,25 @@
+{
+  "name": "stocksmart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "python strategy/app.py",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arhamgarg/stocksmart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arhamgarg/stocksmart/issues"
+  },
+  "homepage": "https://github.com/arhamgarg/stocksmart#readme",
+  "devDependencies": {
+    "electron": "^35.1.2"
+  }
+}

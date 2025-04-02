@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" stroke="#6366F1" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 21 L3 3 L5 3"/> <!-- Vertical Axis -->
+  <path d="M3 21 L21 21 L21 19"/> <!-- Horizontal Axis -->
+  <path d="M3 17 L7 12 L12 15 L17 9 L21 12"/> <!-- Graph Line -->
+</svg>

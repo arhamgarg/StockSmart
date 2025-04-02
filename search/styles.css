@@ -58,8 +58,8 @@ body {
 }
 
 .dashboard-header h1 {
-    font-size: 1.75rem;
     font-weight: 600;
+    font-size: 1.2rem;
 }
 
 .icon-button {
@@ -279,7 +279,7 @@ canvas[data-chart-type="candlestick"] {
     background-color: var(--card-bg);
 }
 
-/* Improved tooltip for candlestick */
+/* Improved tooltip for stock chart */
 .tooltip {
     position: absolute;
     display: none;
@@ -292,9 +292,12 @@ canvas[data-chart-type="candlestick"] {
     font-size: 0.9rem;
     min-width: 180px;
     border: 1px solid var(--border);
-    animation: fadeIn 0.2s ease-in-out;
+    animation: fadeIn 0.15s ease-in-out;
     max-width: 250px;
     transform-origin: center top;
+    /* Prevent tooltip from going outside viewport */
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -769,4 +772,3 @@ canvas[data-chart-type="candlestick"] {
 .nav-link:hover {
   color: var(--primary);
 }
-

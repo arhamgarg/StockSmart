@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime, timezone
 from fastapi import FastAPI, Form
-from fastapi.responses import FileResponse, Response, StreamingResponse
+from fastapi.responses import FileResponse, Response, StreamingResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 import google.generativeai as genai
 from dotenv import load_dotenv
@@ -26,20 +26,25 @@ app = FastAPI()
 
 MESSAGES = []
 
+# Mount each directory
+app.mount("/strategy", StaticFiles(directory="strategy"), name="strategy")
+app.mount("/landing", StaticFiles(directory="landing"), name="landing")
+app.mount("/search", StaticFiles(directory="search"), name="search")
 
+# Then use this for the main route
 @app.get('/')
-async def index() -> FileResponse:
-    return FileResponse("index.html", media_type='text/html')
+async def index() -> Response:
+    return RedirectResponse(url="/strategy/index.html")
 
 
 @app.get('/script.js')
 async def main_js() -> FileResponse:
-    return FileResponse("script.js", media_type='text/javascript')
+    return FileResponse("strategy/script.js", media_type='text/javascript')
 
 
 @app.get('/styles.css')
 async def main_css() -> FileResponse:
-    return FileResponse("styles.css", media_type='text/css')
+    return FileResponse("strategy/styles.css", media_type='text/css')
 
 
 @app.get('/chat/')
@@ -127,7 +132,26 @@ async def post_chat(prompt: str = Form(...)) -> StreamingResponse:
     return StreamingResponse(stream_messages(), media_type='text/plain')
 
 # Mount static files directory
-app.mount("/static", StaticFiles(directory="."), name="static")
+app.mount("/static", StaticFiles(directory="strategy"), name="static")
+
+@app.get('/landing/')
+async def landing_page() -> FileResponse:
+    return FileResponse("landing/index.html", media_type='text/html')
+
+@app.get('/search/')
+async def search_page() -> FileResponse:
+    return FileResponse("search/index.html", media_type='text/html')
+
+# Add these routes for landing page assets
+@app.get('/landing/styles.css')
+async def landing_css() -> FileResponse:
+    return FileResponse("landing/styles.css", media_type='text/css')
+
+@app.get('/landing/script.js')
+async def landing_js() -> FileResponse:
+    return FileResponse("landing/script.js", media_type='text/javascript')
+
+# Similar routes for search page assets
 
 if __name__ == '__main__':
     import uvicorn

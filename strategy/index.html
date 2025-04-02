@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Strategy</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
+    <header class="navbar">
+      <div class="logo-container">
+        <a href="../landing/index.html" class="logo-link">
+          <i class="fas fa-chart-line"></i>
+          <span class="logo-text">StockSmart</span>
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="../landing/index.html" class="nav-link">Home</a>
+        <a href="../search/index.html" class="nav-link active">Search</a>
+      </nav>
+      <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>
     <main>
       <h2>AI Strategy</h2>
       <div id="conversation"></div>
@@ -26,6 +47,6 @@
         information.
       </div>
     </main>
-    <script type="module" src="/script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
