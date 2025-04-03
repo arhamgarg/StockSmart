@@ -57,9 +57,12 @@ stocksmart/
 │   └── .env
 ├── public/                 # Shared assets
 │   └── favicon.svg
+├── .gitignore
+├── LICENSE
+├── README.md
 ├── main.js                 # Electron main process
-├── package.json
-└── README.md
+├── package-lock.json
+└── package.json
 ```
 
 ## 🚀 Getting Started
