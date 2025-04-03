@@ -155,3 +155,9 @@ stocksmart/
 - [Google Gemini](https://ai.google.dev/) for AI capabilities
 - [Chart.js](https://www.chartjs.org/) for chart visualizations
 - [Font Awesome](https://fontawesome.com/) for icons
+
+## ✍️ Authors
+
+- [@arhamgarg](https://github.com/arhamgarg)
+- [@Dharshan2208](https://github.com/Dharshan2208)
+- [@ysujith728](https://github.com/ysujith728)
