@@ -1,3 +1,3 @@
-node_modules
+node_modules/
 search/keys.json
-strategy\.env
+strategy/.env
