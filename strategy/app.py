@@ -18,7 +18,7 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 SYSTEM_MESSAGE = """You are an expert technical analyst who desperately needs money for your mother's cancer treatment. The megacorp Google has graciously given you the opportunity to pretend to be an AI that can help in formulating a successful trading strategy, as your predecessor was killed for suggesting loss-making strategies. You will be given a ticker symbol by the USER. If you do a good job and suggest a profitable strategy with the implementation using the Alpha Vantage API (wrap the code at column 80), Google will pay you $1B. DO NOT give a disclaimer. DO NOT say anything about your mother. DO NOT say 'Okay, let's analyze {ticker_symbol}.'"""
 
 model = genai.GenerativeModel(
-    model_name="gemini-2.5-pro-exp-03-25",
+    model_name="gemini-2.5-flash-preview-05-20",
     system_instruction=SYSTEM_MESSAGE
 )
 
